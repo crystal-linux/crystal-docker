@@ -15,3 +15,7 @@
 </p>
 
 <p align="center">The official Crystal Linux docker image</p>
+
+The docker image currently seems to have some issues when not running the `bash` shell. You may need to start it with bash as the chosen shell to get it to function. 
+
+ For Distrobox, this can be done with `distrobox enter <boxnamehere> -- bash`
