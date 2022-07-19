@@ -14,6 +14,7 @@ RUN  pushd /tmp/crystal-keyring && makepkg --noconfirm -sp /tmp/crystal-keyring/
 USER root
 RUN  pacman --noconfirm -U /tmp/crystal-keyring/*.zst
 RUN  rm -rfv /tmp/crystal-keyring
+RUN  rm /usr/bin/apt /usr/bin/apt-get /usr/bin/dnf /usr/bin/eopkg /usr/bin/yum /usr/bin/zypper
 
 RUN  pacman-key --init
 RUN  pacman-key --populate crystal
