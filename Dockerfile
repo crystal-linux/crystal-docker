@@ -1,4 +1,5 @@
 FROM archlinux:latest
+LABEL org.opencontainers.image.description "A work-in-progress, easy to use, set up and configure arch derivative"
 
 RUN  pacman -Syu --noconfirm
 RUN  pacman -S --needed --noconfirm pacman-contrib base-devel git wget
@@ -26,5 +27,3 @@ RUN  sed -i 's/^CheckSpace/#CheckSpace/g' /etc/pacman.conf
 RUN  mv /etc/os-release /etc/os-release.old
 
 RUN  pacman -Syu --noconfirm
-#RUN  rm /usr/bin/apt /usr/bin/apt-get /usr/bin/dnf /usr/bin/eopkg /usr/bin/yum /usr/bin/zypper
-#The above is commented out as it is not needed, but kept in case it is needed in the future.
