@@ -9,7 +9,7 @@ RUN  mkdir /tmp/crystal-keyring
 RUN  chown temp-user /tmp/crystal-keyring
 
 USER temp-user
-RUN  git clone https://github.com/crystal-linux/crystal-keyring.git /tmp/crystal-keyring
+RUN  git clone https://github.com/crystal-linux/pkgbuild.crystal-keyring.git /tmp/crystal-keyring
 RUN  pushd /tmp/crystal-keyring && makepkg --noconfirm -sp /tmp/crystal-keyring/PKGBUILD && popd
 
 USER root
