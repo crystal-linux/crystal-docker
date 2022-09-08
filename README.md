@@ -18,8 +18,10 @@
 
 ## To use inside of distrobox:
 
-Run the following command: `distrobox create -n insertnamehere -i docker.io/crystallinux/crystal` to create a distrobox container.
+Run the following command: `distrobox create -n insertnamehere -i crystal` to create a distrobox container.
 
 ## Extra information
 
-Docker image is also available at https://hub.docker.com/r/crystallinux/crystal. Run `docker/podman pull crystallinux/crystal` to download the image to your system.
+To pull this docker image to your system, use `docker/podman pull ghcr.io/crystal-linux/crystal`.
+
+This Docker image is also available at https://hub.docker.com/r/crystallinux/crystal. Run `docker/podman pull crystallinux/crystal` to download the image to your system.
