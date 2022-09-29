@@ -12,6 +12,11 @@ USER temp-user
 RUN  git clone https://github.com/crystal-linux/pkgbuild.crystal-keyring.git /tmp/crystal-keyring
 RUN  pushd /tmp/crystal-keyring && makepkg --noconfirm -sp /tmp/crystal-keyring/PKGBUILD && popd
 
+RUN git clone https://github.com/crystal-linux/pkgbuild.crystal-mirrorlist.git /tmp/crystal-mirrorlist
+RUN pushd /tmp/crystal-mirrorlist && makepkg --noconfirm -sp /tmp/crystal-mirrorlist/PKGBUILD && popd
+
+RUN rm -rf /tmp/crystal-{keyring,mirrorlist}
+
 USER root
 RUN  pacman --noconfirm -U /tmp/crystal-keyring/*.zst
 RUN  rm -rfv /tmp/crystal-keyring
