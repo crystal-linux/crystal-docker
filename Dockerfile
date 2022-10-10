@@ -2,7 +2,7 @@ FROM archlinux:latest
 LABEL org.opencontainers.image.description="A work-in-progress, easy to use, set up and configure Arch Linux derivative"
 
 RUN  pacman -Syu --noconfirm
-RUN  pacman -S --needed --noconfirm pacman-contrib base-devel git wget
+RUN  pacman -S --needed --noconfirm pacman-contrib base-devel git wget openssh
 
 RUN  useradd -u 901 temp-user
 RUN  mkdir /tmp/crystal-keyring
