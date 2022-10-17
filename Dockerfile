@@ -2,7 +2,7 @@ FROM archlinux:latest
 LABEL org.opencontainers.image.description="A work-in-progress, easy to use, set up and configure Arch Linux derivative"
 
 RUN  pacman -Syu --noconfirm
-RUN  pacman -S --needed --noconfirm pacman-contrib base-devel git wget openssh
+RUN  pacman -S --needed --noconfirm pacman-contrib base-devel git openssh
 
 RUN  useradd -u 901 temp-user
 RUN  mkdir /tmp/crystal-keyring
@@ -23,11 +23,8 @@ RUN  rm -rfv /tmp/crystal-{keyring,mirrorlist}
 RUN  pacman-key --init
 RUN  pacman-key --populate crystal
 
-RUN  mv /etc/pacman.conf /etc/pacman.conf.old
-RUN  wget https://repo.getcryst.al/pacman.conf
-RUN  mv pacman.conf /etc/pacman.conf
+RUN  curl https://repo.getcryst.al/pacman.conf -o /etc/pacman.conf
 RUN  sed -i 's/^CheckSpace/#CheckSpace/g' /etc/pacman.conf
 
-RUN  mv /etc/os-release /etc/os-release.old
-
 RUN  pacman -Syu --noconfirm
+RUN  pacman -S --needed --noconfirm crystal-core crystal-branding
